@@ -1,4 +1,6 @@
 const DEFAULT_SIZE = 16;
+let mouseToggleOn = false;
+let isMouseDown = false;
 
 const gridContainer = document.querySelector('.grid-container');
 
@@ -13,22 +15,19 @@ function createGrid(size) {
     }
 }
 
-// slider
-
 const slider = document.querySelector('#slider');
 
 function clearGrid() {
     gridContainer.innerHTML = '';
 }
 
+
 function setSliderLabel(value) {
     let gridLabels = document.querySelectorAll('#slider-value');
     gridLabels.forEach(label => label.textContent = value);
 }
 
-
 function changeGrid(e) {
-    console.log(this.value);
     setSliderLabel(this.value);
     clearGrid();
     createGrid(this.value);
@@ -37,17 +36,37 @@ function changeGrid(e) {
 
 slider.addEventListener('change', changeGrid);
 
-// change cell color
-
-function changeColor(e) {
+function changeCellColor(e) {
+    if (mouseToggleOn && !isMouseDown) return;
     this.classList.add('hover');
 }
 
 function initHover() {
     const cells = document.querySelectorAll('.grid-cell');
-    cells.forEach(cell => cell.addEventListener('mouseover', changeColor));
+
+    cells.forEach(cell => cell.addEventListener('mousedown', () => {
+        isMouseDown = true;
+    }));
+
+    cells.forEach(cell => cell.addEventListener('mouseup', () => {
+        isMouseDown = false;
+    }));
+
+    cells.forEach(cell => cell.addEventListener('mouseover', changeCellColor));
+}
+
+function captureSelection(e) {
+    mouseToggleOn = !mouseToggleOn;
+    (mouseToggleOn) ? this.classList.add('button-on') :
+        this.classList.remove('button-on');
+}
+
+function toggleMouseHold() {
+    const toggle = document.querySelector('#toggle-hold');
+    toggle.addEventListener('click', captureSelection);
 }
 
 setSliderLabel(DEFAULT_SIZE);
 createGrid(DEFAULT_SIZE);
 initHover();
+toggleMouseHold();

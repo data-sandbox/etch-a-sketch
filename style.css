@@ -1,9 +1,11 @@
 :root {
     --primary-dark: black;
+    --primary-light: white;
+    --secondary-light: whitesmoke;
 }
 
 html {
-    background-color: whitesmoke;
+    background-color: var(--secondary-light);
     text-align: center;
     font-family: monospace;
     font-size: 18px;
@@ -32,12 +34,27 @@ h1 {
 .grid-cell {
     user-select: none;
     /* must include 'solid' to work */
-    background-color: white;
-    border: 0.5px solid whitesmoke;
+    background-color: var(--primary-light);
+    border: 0.5px solid var(--secondary-light);
 }
 
 .hover {
-    background-color: black;
+    background-color: var(--primary-dark);
+}
+
+button {
+    background-color: rgb(230, 230, 230);
+    border: 0;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+    width: 100%;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.button-on {
+    background-color: var(--primary-dark);
+    color: var(--secondary-light);
 }
 
 footer {
