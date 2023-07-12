@@ -47,12 +47,12 @@ function initHover() {
     cells.forEach(cell => cell.addEventListener('mousedown', () => {
         isMouseDown = true;
     }));
-
     cells.forEach(cell => cell.addEventListener('mouseup', () => {
         isMouseDown = false;
     }));
 
     cells.forEach(cell => cell.addEventListener('mouseover', changeCellColor));
+    cells.forEach(cell => cell.addEventListener('mousedown', changeCellColor));
 }
 
 function captureSelection(e) {
