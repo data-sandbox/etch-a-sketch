@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/8ca86f1d02.js" crossorigin="anonymous"></script>
     <script src="script.js" defer></script>
 </head>
 
@@ -13,10 +15,23 @@
     <h1>Etch-a-Sketch</h1>
     <div id="container">
         <div class="settings">
-            <p>Placeholder.</p>
+            <div class="slider">
+                <p class="grid-size">Grid Size:
+                    <span id="slider-value"></span> x
+                    <span id="slider-value"></span>
+                </p>
+                <input type="range" id="slider" name="slider" min="4" max="100" value="16" step="1">
+            </div>
+            <!-- <button id="toggle-hold">Toggle Mouse Hold</button> -->
         </div>
         <div class="grid-container"></div>
     </div>
+    <footer>
+        <p>
+            data-sandbox <a href="https://github.com/data-sandbox" target="_blank"><i
+                    class="fa-brands fa-github"></i></a>
+        </p>
+    </footer>
 </body>
 
 </html>
