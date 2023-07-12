@@ -1,0 +1,34 @@
+html {
+    background-color: whitesmoke;
+    text-align: center;
+    font-family: monospace;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    /* background-color: var(--secondary-light); */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.grid-cell {
+    user-select: none;
+    /* must include 'solid' to work */
+    background-color: white;
+    border: 0.5px solid whitesmoke;
+}
+
+.hover {
+    background-color: black;
+}
