@@ -7,13 +7,14 @@
     <title>Etch-a-Sketch</title>
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/8ca86f1d02.js" crossorigin="anonymous"></script>
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <h1>Etch-a-Sketch</h1>
-    <div id="container">
+    <header>
+        <h1>Etch-a-Sketch</h1>
+    </header>
+    <main id="container">
         <div class="settings">
             <div class="slider">
                 <p class="grid-size">Grid Size:
@@ -22,15 +23,19 @@
                 </p>
                 <input type="range" id="slider" name="slider" min="4" max="100" value="16" step="1">
             </div>
-            <button id="toggle-hold">Toggle Mouse Hold</button>
+            <div class="toggle-container">
+                <p class="toggle">Hold mouse to draw</p>
+                <input type="checkbox" id="switch" />
+                <label for="switch">Toggle</label>
+            </div>
         </div>
         <div class="grid-container"></div>
-    </div>
+    </main>
     <footer>
-        <p>
-            data-sandbox <a href="https://github.com/data-sandbox" target="_blank"><i
-                    class="fa-brands fa-github"></i></a>
-        </p>
+        <p>@data-sandbox</p>
+        <a href="https://github.com/data-sandbox" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                class="github" /></a>
     </footer>
 </body>
 

@@ -2,16 +2,38 @@
     --primary-dark: black;
     --primary-light: white;
     --secondary-light: whitesmoke;
+    --toggle-height: 1.5rem;
+    --toggle-width: calc(2*var(--toggle-height));
+}
+
+* {
+    font-family: monospace;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
 }
 
 html {
+    height: 100%;
     background-color: var(--secondary-light);
     text-align: center;
-    font-family: monospace;
-    font-size: 18px;
 }
 
-h1 {
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    padding: 20px;
+}
+
+header h1 {
     font-size: 48px;
 }
 
@@ -19,7 +41,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 3rem;
+    flex-grow: 1;
 }
 
 .grid-container {
@@ -57,16 +79,70 @@ button {
     color: var(--secondary-light);
 }
 
-footer {
-    margin-top: 3rem;
+.toggle-container {
+    display: flex;
+    gap: 3px;
+    padding-top: 30px;
 }
 
-.fa-github {
-    color: var(--primary-dark);
-    font-size: 24px;
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+img.github {
+    height: 2rem;
     transition: transform 0.5s ease-in-out;
 }
 
-.fa-github:hover {
+img.github:hover {
     transform: rotate(360deg) scale(1.2);
 }
+
+/* toggle */
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: var(--toggle-width);
+    height: var(--toggle-height);
+    background: grey;
+    display: block;
+    border-radius: var(--toggle-height);
+    position: relative;
+}
+
+label:after {
+    content: "";
+    position: absolute;
+    top: calc(0.05*var(--toggle-height));
+    left: calc(0.05*var(--toggle-height));
+    width: calc(0.9*var(--toggle-height));
+    height: calc(0.9*var(--toggle-height));
+    background: #fff;
+    border-radius: calc(0.9*var(--toggle-height));
+    transition: 0.3s;
+}
+
+input:checked+label {
+    background: #bada55;
+}
+
+input:checked+label:after {
+    left: calc(100% - calc(0.05*var(--toggle-height)));
+    transform: translateX(-100%);
+}
+
+label:active:after {
+    width: calc(1.3*var(--toggle-height));
+}
+
+/* toggle end */

@@ -62,7 +62,7 @@ function captureSelection(e) {
 }
 
 function toggleMouseHold() {
-    const toggle = document.querySelector('#toggle-hold');
+    const toggle = document.querySelector('#switch');
     toggle.addEventListener('click', captureSelection);
 }
 
